@@ -31,12 +31,11 @@ Alternatively, you can run your Yii projects with FrankenPHP from your local mac
 
    # The domain name of your server
    localhost {
-   	# Set the webroot to the public/ directory
-   	root public/
    	# Enable compression (optional)
    	encode zstd br gzip
    	# Execute PHP files from the public/ directory and serve assets
    	php_server {
+   		root public/
    		try_files {path} index.php
    	}
    }
@@ -74,11 +73,12 @@ Update your `Caddyfile` to start the application in worker mode:
 }
 
 localhost {
-	root public/
 	encode zstd br gzip
 	php_server {
-		worker {
-			file ./worker.php
+		root public/
+		worker ./worker.php {
+			# Send all requests to the worker
+			match *
 			# Reload workers when PHP files change (development only)
 			watch ./**/*.php
 		}
