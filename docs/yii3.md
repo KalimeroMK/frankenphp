@@ -86,7 +86,7 @@ localhost {
 }
 ```
 
-If your application is based on the [official Yii app template](https://github.com/yiisoft/app), see the [package README](https://github.com/yiisoft/yii-runner-frankenphp) for a complete `worker.php` example with debug, environment, and error handler configuration.
+If your application is based on the [official Yii app template](https://github.com/yiisoft/app), see the [package readme](https://github.com/yiisoft/yii-runner-frankenphp) for a complete `worker.php` example with debug, environment, and error handler configuration.
 
 To limit the number of requests a worker handles before being restarted (useful to mitigate memory leaks), set the `MAX_REQUESTS` environment variable. By default, workers handle requests indefinitely.
 
